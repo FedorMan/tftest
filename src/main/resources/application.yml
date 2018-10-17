@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/weather
+    login: weatherUser
+    password: 123
