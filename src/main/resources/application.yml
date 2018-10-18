@@ -1,5 +1,16 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost/weather
-    login: weatherUser
+    url: jdbc:postgresql://localhost:5432/weather
+    username: weatherUser
     password: 123
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  flyway:
+    enabled: true
