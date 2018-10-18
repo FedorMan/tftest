@@ -5,4 +5,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class YahooWeatherIntegrationService implements WeatherIntegrationService {
+    @Override
+    public void loadCurrentWeather() {
+
+    }
 }
