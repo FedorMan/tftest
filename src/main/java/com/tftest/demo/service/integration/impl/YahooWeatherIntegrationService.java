@@ -23,7 +23,7 @@ public class YahooWeatherIntegrationService implements WeatherIntegrationService
 
     @Override
     public void loadCurrentWeather() {
-        List<City> cities = cityService.getCities();
+        List<City> cities = cityService.loadCities();
         cities.forEach(city -> {
             CurrentWeather currentWeather = weatherService.loadCurrentWeather(city);
             if (!currentWeatherService.existByTime(currentWeather.getUpdateTime(), city)){

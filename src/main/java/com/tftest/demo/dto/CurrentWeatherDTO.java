@@ -1,12 +1,13 @@
 package com.tftest.demo.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
-public class CurrentWeatherDTO {private int id;
+@AllArgsConstructor
+public class CurrentWeatherDTO {
     private double temperature;
     private double windSpeed;
-    private LocalDate updateTime;
+    private LocalDateTime updateTime;
 }
