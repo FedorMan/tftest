@@ -14,3 +14,7 @@ spring:
             non_contextual_creation: true
   flyway:
     enabled: true
+yahoo:
+  api:
+    url: https://query.yahooapis.com/v1/public/yql?{q}&format=json
+    query: select * from weather.forecast where woeid = {city_id}

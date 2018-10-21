@@ -12,7 +12,7 @@ create table current_weather(
   city_id integer references city(id),
   wind_speed double precision,
   temperature double precision,
-  update_time date
+  update_time timestamp
 );
 
 create index update_time_index on current_weather(update_time);

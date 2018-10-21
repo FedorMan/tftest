@@ -2,20 +2,18 @@ package com.tftest.demo.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import java.time.LocalDate;
-import java.util.List;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
 public class CurrentWeather {
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private double temperature;
     private double windSpeed;
-    private LocalDate updateTime;
+    private LocalDateTime updateTime;
     @ManyToOne
     private City city;
 }

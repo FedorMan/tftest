@@ -1,4 +1,4 @@
-package com.tftest.demo.service;
+package com.tftest.demo.service.entity;
 
 import com.tftest.demo.entity.City;
 import com.tftest.demo.repository.CityRepository;
