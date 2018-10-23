@@ -25,11 +25,7 @@ public class CityService {
         List<City> cities = cityRepository.findAll();
         List<CityDTO> cityDTOs = new ArrayList<>();
         cities.forEach(city -> {
-            CurrentWeather currentWeather = city.getCurrentWeathers().stream()
-                    .max((o1, o2) -> o1.getUpdateTime().compareTo(o2.getUpdateTime())).get();
-            CurrentWeatherDTO currentWeatherDTO
-                    = new CurrentWeatherDTO(currentWeather.getTemperature(), currentWeather.getWindSpeed(), currentWeather.getUpdateTime());
-            cityDTOs.add(new CityDTO(city.getId(), city.getName(), currentWeatherDTO));
+            cityDTOs.add(new CityDTO(city));
         });
         return cityDTOs;
     }

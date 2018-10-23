@@ -16,7 +16,7 @@ public class WeatherController {
     @Autowired
     private CityService cityService;
 
-    @GetMapping("/city")
+    @GetMapping("/cities")
     public List<CityDTO> getCities(){
         return cityService.getCities();
     }
