@@ -1,9 +1,9 @@
-package com.tftest.demo.service.weather.impl;
+package com.tftest.demo.service.external.weather.impl;
 
 import com.tftest.demo.dto.YahooWeatherDTO;
 import com.tftest.demo.entity.City;
 import com.tftest.demo.entity.CurrentWeather;
-import com.tftest.demo.service.weather.WeatherService;
+import com.tftest.demo.service.external.weather.ExternalWeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @Service
-public class YahooWeatherService implements WeatherService {
+public class YahooExternalWeatherService implements ExternalWeatherService {
 
     @Autowired
     private RestTemplate restTemplate;
