@@ -5,23 +5,19 @@ import com.tftest.demo.entity.CurrentWeather;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.LinkedList;
-import java.util.List;
-
 @Data
 @AllArgsConstructor
 public class CityDTO {
     private Integer id;
     private String name;
     private CurrentWeatherDTO currentWeather;
-    private List<ForecastWeatherDTO> forecastWeathers;
+    private String pathToImg;
 
     public CityDTO(City city){
         id = city.getId();
         name = city.getName();
+        pathToImg = city.getPathToImg();
         CurrentWeather currentWeather = city.getCurrentWeathers().get(city.getCurrentWeathers().size() - 1);
         this.currentWeather = new CurrentWeatherDTO(currentWeather);
-        forecastWeathers = new LinkedList<>();
-        city.getForecastWeathers().forEach(forecastWeather -> forecastWeathers.add(new ForecastWeatherDTO(forecastWeather)));
     }
 }

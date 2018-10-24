@@ -1,5 +1,6 @@
 package com.tftest.demo.service.entity;
 
+import com.tftest.demo.dto.ForecastWeatherDTO;
 import com.tftest.demo.entity.City;
 import com.tftest.demo.entity.CurrentWeather;
 import com.tftest.demo.repository.CurrentWeatherRepository;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class WeatherService {
@@ -24,4 +26,8 @@ public class WeatherService {
     public boolean existCurrentWeatherByTime(LocalDateTime updateTime, City city){
         return currentWeatherRepository.existsCurrentWeatherByUpdateTimeEqualsAndCity(updateTime, city);
     }
+
+//    public List<ForecastWeatherDTO> getForecastWeather(){
+//
+//    }
 }

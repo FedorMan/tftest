@@ -17,4 +17,5 @@ public class City {
     @OrderBy("futureDate")
     @OneToMany(mappedBy = "city",fetch = FetchType.LAZY)
     private List<ForecastWeather> forecastWeathers;
+    private String pathToImg;
 }

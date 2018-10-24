@@ -13,8 +13,8 @@ public class CurrentWeatherDTO {
     private LocalDateTime updateTime;
 
     public CurrentWeatherDTO(CurrentWeather currentWeather){
-        temperature = currentWeather.getTemperature();
-        windSpeed = currentWeather.getWindSpeed();
+        temperature = Math.round(currentWeather.getTemperature());
+        windSpeed = Math.round(currentWeather.getWindSpeed());
         updateTime = currentWeather.getUpdateTime();
     }
 }
