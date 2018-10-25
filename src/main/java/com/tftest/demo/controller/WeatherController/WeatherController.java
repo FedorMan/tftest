@@ -6,13 +6,14 @@ import com.tftest.demo.service.entity.CityService;
 import com.tftest.demo.service.entity.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController()
-@RequestMapping("weather")
+@RequestMapping("/weather")
 public class WeatherController {
 
     @Autowired
@@ -21,14 +22,14 @@ public class WeatherController {
     private WeatherService weatherService;
 
 
-    @GetMapping("/cities")
+    @GetMapping("/current")
     public List<CityDTO> getCities(){
         return cityService.getCities();
     }
 
-//    @GetMapping("/forecast/{city}")
-//    public List<ForecastWeatherDTO> getForecastWeather(){
-//
-//    }
+    @GetMapping("/forecast/{cityId}")
+    public List<ForecastWeatherDTO> getForecastWeather(@PathVariable Integer cityId){
+        return weatherService.getForecastWeather(cityId);
+    }
 
 }
