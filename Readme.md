@@ -5,6 +5,10 @@
 **сборка frontend**
 **перейти в каталог frontend/client**
 **выполнить**
+
 `npm install`
+
+**затем**
+
 `npm run start`
 
