@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,7 +30,8 @@ public class WeatherService {
     }
 
     public List<ForecastWeatherDTO> getForecastWeather(Integer cityId){
-        return forecastWeatherRepository.findByCityId(cityId).stream().map(forecastWeather
-                -> new ForecastWeatherDTO(forecastWeather)).collect(Collectors.toList());
+        return forecastWeatherRepository.findTop28ByCityIdOrderByFutureDateDesc(cityId).stream().map(forecastWeather
+                -> new ForecastWeatherDTO(forecastWeather))
+                .sorted(Comparator.comparing(ForecastWeatherDTO::getFutureDate)).collect(Collectors.toList());
     }
 }
