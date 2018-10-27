@@ -14,6 +14,6 @@ public class IntegrationScheduler {
 //    @Scheduled(fixedRate = 10)
     @Scheduled(cron = "0 0 */1 * * *")
     public void loadCurrentWeather(){
-        weatherIntegrationService.loadCurrentWeather();
+        weatherIntegrationService.loadWeather();
     }
 }

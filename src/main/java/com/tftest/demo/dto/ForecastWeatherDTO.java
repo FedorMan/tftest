@@ -14,8 +14,8 @@ public class ForecastWeatherDTO {
 
     public ForecastWeatherDTO(ForecastWeather forecastWeather){
         id = forecastWeather.getId();
-        maxTemperature = forecastWeather.getMaxTemperature();
-        minTemperature = forecastWeather.getMinTemperature();
+        maxTemperature = Math.round(forecastWeather.getMaxTemperature());
+        minTemperature = Math.round(forecastWeather.getMinTemperature());
         futureDate = forecastWeather.getFutureDate();
     }
 }
