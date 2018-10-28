@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController()
 @RequestMapping("/weather")
@@ -24,12 +25,11 @@ public class WeatherController {
 
     @GetMapping("/current")
     public List<CityDTO> getCities(){
-        return cityService.getCities();
+        return cityService.getCities().stream().map(CityDTO::new).collect(Collectors.toList());
     }
 
     @GetMapping("/forecast/{cityId}")
     public List<ForecastWeatherDTO> getForecastWeather(@PathVariable Integer cityId){
-        return weatherService.getForecastWeather(cityId);
+        return weatherService.getForecastWeather(cityId).stream().map(ForecastWeatherDTO::new).collect(Collectors.toList());
     }
-
 }

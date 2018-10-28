@@ -39,7 +39,7 @@ public class YahooExternalWeatherService implements ExternalWeatherService {
         return forecastWeathers;
     }
 
-    public YahooWeatherDTO getWeather(City city){
+    private YahooWeatherDTO getWeather(City city){
         URI targetUrl = UriComponentsBuilder.fromUriString(url)
                 .queryParam("q", query.replace("{city_id}", String.valueOf(city.getId())))
                 .build()

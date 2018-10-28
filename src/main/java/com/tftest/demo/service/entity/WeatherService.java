@@ -1,6 +1,5 @@
 package com.tftest.demo.service.entity;
 
-import com.tftest.demo.dto.ForecastWeatherDTO;
 import com.tftest.demo.entity.City;
 import com.tftest.demo.entity.CurrentWeather;
 import com.tftest.demo.entity.ForecastWeather;
@@ -30,10 +29,9 @@ public class WeatherService {
         return currentWeatherRepository.existsCurrentWeatherByUpdateTimeEqualsAndCity(updateTime, city);
     }
 
-    public List<ForecastWeatherDTO> getForecastWeather(Integer cityId) {
-        return forecastWeatherRepository.findTop28ByCityIdOrderByFutureDateDesc(cityId).stream().map(forecastWeather
-                -> new ForecastWeatherDTO(forecastWeather))
-                .sorted(Comparator.comparing(ForecastWeatherDTO::getFutureDate)).collect(Collectors.toList());
+    public List<ForecastWeather> getForecastWeather(Integer cityId) {
+        return forecastWeatherRepository.findTop28ByCityIdOrderByFutureDateDesc(cityId).stream()
+                .sorted(Comparator.comparing(ForecastWeather::getFutureDate)).collect(Collectors.toList());
     }
 
     public ForecastWeather saveForecastWeather(ForecastWeather forecastWeather) {
