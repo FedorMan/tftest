@@ -15,4 +15,5 @@ public class ForecastWeather extends Weather{
     private double maxTemperature;
     private double minTemperature;
     private LocalDate futureDate;
+    private String sky;
 }

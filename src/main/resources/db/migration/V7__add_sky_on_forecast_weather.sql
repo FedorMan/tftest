@@ -1,0 +1,1 @@
+alter table forecast_weather add column sky varchar(30);

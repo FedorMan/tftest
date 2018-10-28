@@ -67,7 +67,7 @@ public class YahooWeatherDTO {
         if(query.results.channel.item.forecast != null){
             query.results.channel.item.forecast.forEach(yahooForecastWeather -> {
                 LocalDate date = LocalDate.parse(yahooForecastWeather.date, DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.US));
-                ForecastWeather weather = new ForecastWeather(fToC(Double.parseDouble(yahooForecastWeather.high)), fToC(Double.parseDouble(yahooForecastWeather.low)), date);
+                ForecastWeather weather = new ForecastWeather(fToC(Double.parseDouble(yahooForecastWeather.high)), fToC(Double.parseDouble(yahooForecastWeather.low)), date, yahooForecastWeather.text);
                 forecastWeathers.add(weather);
             });
         }

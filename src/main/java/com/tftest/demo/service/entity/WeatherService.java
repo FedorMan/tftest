@@ -41,6 +41,7 @@ public class WeatherService {
         if (weather != null) {
             weather.setMaxTemperature(forecastWeather.getMaxTemperature());
             weather.setMinTemperature(forecastWeather.getMinTemperature());
+            weather.setSky(forecastWeather.getSky());
             return  forecastWeatherRepository.save(weather);
         }else{
             return forecastWeatherRepository.save(forecastWeather);

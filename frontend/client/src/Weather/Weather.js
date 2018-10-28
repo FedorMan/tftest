@@ -33,6 +33,11 @@ class Weather extends Component {
                                             (
                                                 < div className="seven-col-grid d-flex align-items-stretch card" key={weather.id}>
                                                     <div className="card-body">
+                                                        <div className="weatherIcon">
+                                                            <div className={weather.sky}>
+                                                                <div className="inner"></div>
+                                                            </div>
+                                                        </div>
                                                         <h5 className="card-title">{weather.futureDate[2]}/{weather.futureDate[1]}</h5>
                                                         <h6 className="card-subtitle mb-2 text-muted">max:{weather.maxTemperature} C</h6>
                                                         <h6 className="card-subtitle mb-2 text-muted">min:{weather.minTemperature} C</h6>
