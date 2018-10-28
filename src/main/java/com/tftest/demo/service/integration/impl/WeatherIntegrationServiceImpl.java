@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class YahooWeatherIntegrationService implements WeatherIntegrationService {
+public class WeatherIntegrationServiceImpl implements WeatherIntegrationService {
 
     @Autowired
     private CityService cityService;
