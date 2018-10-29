@@ -24,7 +24,7 @@ public class WeatherIntegrationServiceImpl implements WeatherIntegrationService 
 
     @Override
     public void loadWeather() {
-        List<City> cities = cityService.loadCities();
+        List<City> cities = cityService.getCities();
         cities.forEach(city -> {
             CurrentWeather currentWeather = externalWeatherService.loadCurrentWeather(city);
             if (!weatherService.existCurrentWeatherByTime(currentWeather.getUpdateTime(), city)){

@@ -13,12 +13,11 @@ public class CityService {
     @Autowired
     CityRepository cityRepository;
 
-    public List<City> loadCities() {
-        return cityRepository.findAll();
-    }
-
     public List<City> getCities() {
         return cityRepository.findAll();
     }
 
+    public City getCityById(Integer id){
+        return cityRepository.getOne(id);
+    }
 }

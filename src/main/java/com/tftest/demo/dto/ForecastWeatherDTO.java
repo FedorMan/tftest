@@ -29,11 +29,12 @@ public class ForecastWeatherDTO {
                 break;
             case "Rain": sky = "rain";
                 break;
-//            case "Breezy": sky = "sunny";
-//                break;
+            case "Scattered Showers": sky = "flurries";
+                break;
             case "Sunny": sky = "sunny";
                 break;
+            case "Mostly Sunny": sky = "mostlysunny";
+                break;
         }
-//        sky = forecastWeather.getSky();
     }
 }
