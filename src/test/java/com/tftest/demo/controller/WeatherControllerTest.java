@@ -11,16 +11,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.ConfigFileApplicationContextInitializer;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -95,9 +91,7 @@ public class WeatherControllerTest {
 
     @Test
     public void testForecastWeatherNegative() throws Exception {
-        String json = mockMvc.perform(get(REST_API_URL + REST_API_METHOD_FORECAST_404_NOT_FOUND))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
-                .andReturn().getResponse().getContentAsString();
+        mockMvc.perform(get(REST_API_URL + REST_API_METHOD_FORECAST_404_NOT_FOUND))
+                .andExpect(status().isNotFound());
     }
 }

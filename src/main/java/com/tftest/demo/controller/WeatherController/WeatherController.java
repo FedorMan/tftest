@@ -2,6 +2,7 @@ package com.tftest.demo.controller.WeatherController;
 
 import com.tftest.demo.dto.CityDTO;
 import com.tftest.demo.dto.ForecastWeatherDTO;
+import com.tftest.demo.exception.ResourceNotFoundException;
 import com.tftest.demo.service.entity.CityService;
 import com.tftest.demo.service.entity.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,10 @@ public class WeatherController {
 
     @GetMapping("/forecast/{cityId}")
     public List<ForecastWeatherDTO> getForecastWeather(@PathVariable Integer cityId){
-        return weatherService.getForecastWeather(cityId).stream().map(ForecastWeatherDTO::new).collect(Collectors.toList());
+        List<ForecastWeatherDTO> responce = weatherService.getForecastWeather(cityId).stream().map(ForecastWeatherDTO::new).collect(Collectors.toList());
+        if (responce.isEmpty()) {
+            throw new ResourceNotFoundException();
+        }
+        return responce;
     }
 }
