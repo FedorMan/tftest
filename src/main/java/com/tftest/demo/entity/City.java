@@ -1,9 +1,5 @@
 package com.tftest.demo.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,9 +7,6 @@ import java.util.List;
  * Entity city in application
  */
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class City {
     @Id
     private int id;
@@ -42,4 +35,64 @@ public class City {
      */
     @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
     private List<CityOnSourceWeather> weatherSources;
+
+    public City(int id, String name, String pathToImg, List<CurrentWeather> currentWeathers, List<ForecastWeather> forecastWeathers, List<CityOnSourceWeather> weatherSources) {
+        this.id = id;
+        this.name = name;
+        this.pathToImg = pathToImg;
+        this.currentWeathers = currentWeathers;
+        this.forecastWeathers = forecastWeathers;
+        this.weatherSources = weatherSources;
+    }
+
+    public City() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPathToImg() {
+        return pathToImg;
+    }
+
+    public void setPathToImg(String pathToImg) {
+        this.pathToImg = pathToImg;
+    }
+
+    public List<CurrentWeather> getCurrentWeathers() {
+        return currentWeathers;
+    }
+
+    public void setCurrentWeathers(List<CurrentWeather> currentWeathers) {
+        this.currentWeathers = currentWeathers;
+    }
+
+    public List<ForecastWeather> getForecastWeathers() {
+        return forecastWeathers;
+    }
+
+    public void setForecastWeathers(List<ForecastWeather> forecastWeathers) {
+        this.forecastWeathers = forecastWeathers;
+    }
+
+    public List<CityOnSourceWeather> getWeatherSources() {
+        return weatherSources;
+    }
+
+    public void setWeatherSources(List<CityOnSourceWeather> weatherSources) {
+        this.weatherSources = weatherSources;
+    }
 }

@@ -2,13 +2,11 @@ package com.tftest.demo.dto;
 
 import com.tftest.demo.entity.CurrentWeather;
 import com.tftest.demo.entity.ForecastWeather;
-import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
@@ -51,7 +49,6 @@ class YahooForecastWeather{
 /**
  * DTO for get and parsing wather from source
  */
-@Data
 public class YahooWeatherDTO {
     public Query query;
 

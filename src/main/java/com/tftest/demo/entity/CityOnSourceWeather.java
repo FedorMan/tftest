@@ -1,7 +1,5 @@
 package com.tftest.demo.entity;
 
-import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -9,7 +7,6 @@ import javax.persistence.ManyToOne;
 /**
  * entity for connect city and weather source
  */
-@Data
 @Entity
 public class CityOnSourceWeather {
     @Id
@@ -28,4 +25,36 @@ public class CityOnSourceWeather {
      * id city in source string len == 15
      */
     private String cityIdOnSource;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getCityIdOnSource() {
+        return cityIdOnSource;
+    }
+
+    public void setCityIdOnSource(String cityIdOnSource) {
+        this.cityIdOnSource = cityIdOnSource;
+    }
 }

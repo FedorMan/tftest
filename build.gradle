@@ -23,17 +23,12 @@ repositories {
     mavenCentral()
 }
 
-javadoc {
-    source = sourceSets.main.allJava
-    classpath = configurations.compile
-}
 
 sourceSets {
     build {
         java.srcDir file('src/main/java')
     }
 }
-
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
@@ -42,12 +37,9 @@ dependencies {
     compile('org.postgresql:postgresql')
     compile('org.flywaydb:flyway-core:5.2.0')
 
-    compileOnly('org.projectlombok:lombok:1.18.2')
-
     compile('com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.7')
     compile ('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.7')
     compile ('com.fasterxml.jackson.module:jackson-module-parameter-names:2.9.7')
-
 
     implementation('org.springframework.boot:spring-boot-starter')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
