@@ -21,3 +21,4 @@ yahoo:
   api:
     url: https://query.yahooapis.com/v1/public/yql?{q}&format=json
     query: select * from weather.forecast where woeid = {city_id}
+  nameService: yahoo

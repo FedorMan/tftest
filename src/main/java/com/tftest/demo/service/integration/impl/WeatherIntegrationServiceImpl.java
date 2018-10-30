@@ -22,14 +22,16 @@ public class WeatherIntegrationServiceImpl implements WeatherIntegrationService 
     @Autowired
     private WeatherService weatherService;
 
+    /**
+     * load current weather and forecast weather in database
+     */
     @Override
     public void loadWeather() {
         List<City> cities = cityService.getCities();
         cities.forEach(city -> {
             CurrentWeather currentWeather = externalWeatherService.loadCurrentWeather(city);
-            if (!weatherService.existCurrentWeatherByTime(currentWeather.getUpdateTime(), city)){
-                weatherService.saveCurrentWeather(currentWeather);
-            }
+            weatherService.saveCurrentWeather(currentWeather);
+
             List<ForecastWeather> forecastWeathers = externalWeatherService.loadForecastWeather(city);
             forecastWeathers.forEach(forecastWeather -> {
                 weatherService.saveForecastWeather(forecastWeather);

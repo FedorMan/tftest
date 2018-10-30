@@ -64,7 +64,7 @@ public class WeatherControllerTest {
         CurrentWeather currentWeather = new CurrentWeather(900, 0, LocalDateTime.of(2018, 10, 29, 0, 0));
         List<CurrentWeather> currentWeathers = new ArrayList<CurrentWeather>();
         currentWeathers.add(currentWeather);
-        City city = new City(111, "Hogwast", "aaa", currentWeathers, forecastWeathers);
+        City city = new City(111, "Hogwast", "aaa", currentWeathers, forecastWeathers, null);
         cityDTO = new CityDTO(city);
         forecastWeatherDTOs = forecastWeathers.stream().map(ForecastWeatherDTO::new).collect(Collectors.toList());
     }

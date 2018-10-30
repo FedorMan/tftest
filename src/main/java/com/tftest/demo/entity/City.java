@@ -22,4 +22,6 @@ public class City {
     @OrderBy("futureDate")
     @OneToMany(mappedBy = "city",fetch = FetchType.LAZY)
     private List<ForecastWeather> forecastWeathers;
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
+    private List<CityOnSourceWeather> weatherSources;
 }

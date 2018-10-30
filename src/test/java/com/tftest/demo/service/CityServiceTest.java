@@ -25,11 +25,11 @@ public class CityServiceTest {
     private CityRepository cityRepository;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         List<City> cities = new ArrayList<>();
-        cities.add(new City(1,"Samara","ddd",null,null));
-        cities.add(new City(2,"Moscow","ddd",null,null));
-        cities.add(new City(3,"SP","ddd",null,null));
+        cities.add(new City(1, "Samara", "ddd", null, null, null));
+        cities.add(new City(2, "Moscow", "ddd", null, null, null));
+        cities.add(new City(3, "SP", "ddd", null, null, null));
 
         Mockito.when(cityRepository.findAll()).thenReturn(cities);
 
@@ -37,12 +37,12 @@ public class CityServiceTest {
     }
 
     @Test
-    public void validGetCities(){
+    public void validGetCities() {
         assertEquals(cityService.getCities().size(), 3);
     }
 
     @Test
-    public void validEqualsCities(){
+    public void validEqualsCities() {
         List<City> cities = cityService.getCities();
         City city = cities.stream().filter(c -> c.getName().equals("Samara")).findFirst().get();
         assertEquals(city.getPathToImg(), "ddd");

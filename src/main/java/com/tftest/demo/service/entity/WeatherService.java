@@ -22,7 +22,11 @@ public class WeatherService {
     private ForecastWeatherRepository forecastWeatherRepository;
 
     public CurrentWeather saveCurrentWeather(CurrentWeather currentWeather) {
-        return currentWeatherRepository.save(currentWeather);
+        if (!existCurrentWeatherByTime(currentWeather.getUpdateTime(), currentWeather.getCity())) {
+            return currentWeatherRepository.save(currentWeather);
+        }else{
+            return currentWeather;
+        }
     }
 
     public boolean existCurrentWeatherByTime(LocalDateTime updateTime, City city) {

@@ -23,6 +23,17 @@ repositories {
     mavenCentral()
 }
 
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compile
+}
+
+sourceSets {
+    build {
+        java.srcDir file('src/main/java')
+    }
+}
+
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')

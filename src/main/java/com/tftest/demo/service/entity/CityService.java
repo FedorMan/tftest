@@ -10,9 +10,18 @@ import java.util.List;
 @Service
 public class CityService {
 
+    /**
+     * Repository for city
+     * @see
+     * {@link CityRepository}
+     */
     @Autowired
     CityRepository cityRepository;
 
+    /**
+     *
+     * @return List sities from database
+     */
     public List<City> getCities() {
         return cityRepository.findAll();
     }

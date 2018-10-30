@@ -24,6 +24,8 @@ public class YahooExternalWeatherService implements ExternalWeatherService {
     private String url;
     @Value("${yahoo.api.query}")
     private String query;
+    @Value("${yahoo.nameService}")
+    private String nameService;
 
     @Override
     public CurrentWeather loadCurrentWeather(City city) {
@@ -41,7 +43,9 @@ public class YahooExternalWeatherService implements ExternalWeatherService {
 
     private YahooWeatherDTO getWeather(City city){
         URI targetUrl = UriComponentsBuilder.fromUriString(url)
-                .queryParam("q", query.replace("{city_id}", String.valueOf(city.getId())))
+                .queryParam("q", query.replace("{city_id}", city.getWeatherSources()
+                        .stream().filter(cityOnSourceWeather -> cityOnSourceWeather.getSource().equals(nameService))
+                        .findFirst().get().getCityIdOnSource()))
                 .build()
                 .encode()
                 .toUri();
