@@ -9,5 +9,5 @@ import java.time.LocalDateTime;
 
 @Repository
 public interface CurrentWeatherRepository extends JpaRepository<CurrentWeather,Integer> {
-    public boolean existsCurrentWeatherByUpdateTimeEqualsAndCity(LocalDateTime updateTime, City city);
+    boolean existsCurrentWeatherByUpdateTimeEqualsAndCity(LocalDateTime updateTime, City city);
 }

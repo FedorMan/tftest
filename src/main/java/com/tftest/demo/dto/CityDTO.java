@@ -4,10 +4,15 @@ import com.tftest.demo.entity.City;
 import com.tftest.demo.entity.CurrentWeather;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public class CityDTO {
+
     private Integer id;
     private String name;
     private CurrentWeatherDTO currentWeather;

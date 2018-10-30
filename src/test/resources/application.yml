@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/weatherTest
+    username: weatherUser
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  flyway:
+    enabled: true
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+yahoo:
+  api:
+    url: https://query.yahooapis.com/v1/public/yql?{q}&format=json
+    query: select * from weather.forecast where woeid = {city_id}
