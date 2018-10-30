@@ -48,6 +48,9 @@ class YahooForecastWeather{
     public String text;
 }
 
+/**
+ * DTO for get and parsing wather from source
+ */
 @Data
 public class YahooWeatherDTO {
     public Query query;

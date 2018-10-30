@@ -12,6 +12,9 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+/**
+ * DTO for return current weather on controller
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

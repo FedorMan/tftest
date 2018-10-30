@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * JPA repository for forecast weather
+ */
 @Repository
 public interface ForecastWeatherRepository extends JpaRepository<ForecastWeather,Integer> {
     List<ForecastWeather> findTop28ByCityIdOrderByFutureDateDesc(Integer cityId);

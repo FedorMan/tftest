@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service for work with entity City
+ */
 @Service
 public class CityService {
 

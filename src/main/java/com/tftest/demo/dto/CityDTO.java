@@ -7,6 +7,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+/**
+ * DTO for return city on controller and last get time from source
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

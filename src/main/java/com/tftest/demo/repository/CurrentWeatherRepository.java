@@ -7,7 +7,16 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 
+/**
+ * JPA repository for entity current weather
+ */
 @Repository
 public interface CurrentWeatherRepository extends JpaRepository<CurrentWeather,Integer> {
-    boolean existsCurrentWeatherByUpdateTimeEqualsAndCity(LocalDateTime updateTime, City city);
+    /**
+     * Return current weather if exist by time and city
+     * @param localDateTime
+     * @param city
+     * @return current weather if exist else null
+     */
+    CurrentWeather findByUpdateTimeEqualsAndCity(LocalDateTime localDateTime, City city);
 }
