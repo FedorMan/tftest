@@ -39,6 +39,8 @@ public class ForecastWeatherDTO {
         switch (forecastWeather.getSky()){
             case "Rain And Snow": sky = "sleet";
             break;
+            case "Snow": sky = "snow";
+                break;
             case "Cloudy": sky = "cloudy";
             break;
             case "Mostly Cloudy": sky = "mostlycloudy";
