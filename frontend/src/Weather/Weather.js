@@ -28,19 +28,27 @@ class Weather extends Component {
                         return (
                             <div className="container">
                                 <div className="row">
+                                    <div className="seven-col-grid">Monday</div>
+                                    <div className="seven-col-grid">Tuesday</div>
+                                    <div className="seven-col-grid">Wendsday</div>
+                                    <div className="seven-col-grid">Thursday</div>
+                                    <div className="seven-col-grid">Friday</div>
+                                    <div className="seven-col-grid">Saturday</div>
+                                    <div className="seven-col-grid">Sunday</div>
+                                </div>
+                                <div className="row">
                                     {
                                         response.data.map((weather: any) =>
                                             (
-                                                < div className="seven-col-grid d-flex align-items-stretch card" key={weather.id}>
+                                                <div className="seven-col-grid blueGround d-flex align-items-stretch card" key={weather.id}>
                                                     <div className="card-body">
+                                                        <h5 className="card-title">{weather.futureDate[2]}/{weather.futureDate[1]}</h5>
                                                         <div className="weatherIcon">
                                                             <div className={weather.sky}>
                                                                 <div className="inner"></div>
                                                             </div>
                                                         </div>
-                                                        <h5 className="card-title">{weather.futureDate[2]}/{weather.futureDate[1]}</h5>
-                                                        <h6 className="card-subtitle mb-2 text-muted">max:{weather.maxTemperature} C</h6>
-                                                        <h6 className="card-subtitle mb-2 text-muted">min:{weather.minTemperature} C</h6>
+                                                        <h6 className="card-subtitle mb-2">{weather.minTemperature}°/{weather.maxTemperature}°</h6>
                                                     </div>
                                                 </div>
                                             )

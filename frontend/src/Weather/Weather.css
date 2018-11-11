@@ -1,6 +1,9 @@
 .seven-col-grid {
     width: 14.2857%;
-    background: skyblue;
+}
+
+.blueGround{
+    background: dodgerblue;
 }
 
 h5.widget-title:before {
